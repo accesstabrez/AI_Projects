@@ -1,4 +1,3 @@
-import os
 from pypdf import PdfReader
 from openai import OpenAI
 import streamlit as st

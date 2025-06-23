@@ -1,5 +1,4 @@
 from streamlit_float import *
-import os
 import streamlit as st
 import my_modules.open_ai_call as gi
 import my_modules.compare_files as cmf

@@ -65,7 +65,9 @@ def query(question, context, role):
             content += f"Here is an example:{example}"
         # print(example)
         if role.lower() == "analyst":
-            content = f"You are an {role}. Please provide detailed and precise response as bullet points. Do not add special formatting to the response."
+            content = f"You are an {role}. Please provide detailed and precise \
+            response as bullet points. Do not add special formatting to the \
+            response."
         messages = [
                 {"role":"system", "content": f"{content}"},
                 {"role": "user", "content": question},
