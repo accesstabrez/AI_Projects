@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsd="http://www.w3.org/2001/XMLSchema" exporter="http://www.ibm.com/BPM" exporterVersion="8.6.6" id="bpmnid-c2f64ceb-3694-413c-9c9a-47f91eceac8d" targetNamespace="http://SOX Process/1/SOX Approval Process">
+  <bpmn:process id="bpmnid-ccb3b5ab-1ebf-47c4-9447-25cdd68fb106" name="SOX Approval Process" isClosed="false" processType="None">
+    <bpmn:userTask id="bpmnid-7fb90fc8-4993-481c-827b-ed76209e1006" name="Defining Audit Scope"/>
+    <bpmn:userTask id="bpmnid-1c932caf-4cc4-4960-afb9-eeb4e0e50052" name="Determine Audit Scope Using Risk Assessment"/>
+    <bpmn:userTask id="bpmnid-24d9da3b-4b78-4936-b0a1-a4d74b4906ba" name="Determine Materiality and Risks"/>
+    <bpmn:userTask id="bpmnid-c2a9acb4-8aae-479c-b278-abbf46be0d40" name="Identifying SOX Controls"/>
+    <bpmn:userTask id="bpmnid-313e57ad-fe79-4220-8ade-a3d196a418b0" name="Performing Fraud Risk Assessment"/>
+    <bpmn:userTask id="bpmnid-b5af83f0-77d4-4b39-95b5-5b5ebc178815" name="Managing Process and SOX Controls Documentation"/>
+    <bpmn:userTask id="bpmnid-fe99288f-622a-418d-88ac-2aee71da46d6" name="Testing Key Controls"/>
+    <bpmn:userTask id="bpmnid-b643f2f7-1450-4d02-8b49-450fbfedc7f7" name="Assessing Deficiencies"/>
+    <bpmn:userTask id="bpmnid-f6fe60bc-771d-4f8f-b4b5-501eba0381b0" name="Delivering Management's Report on Controls"/>
+    <bpmn:startEvent id="bpmnid-0a143b4e-6f5c-4c74-bf82-8a17ddddd4c0" name="Start"/>
+    <bpmn:endEvent id="bpmnid-f426a2d5-b080-4f9e-80c9-a4fd80b21489" name="End"/>
+    <bpmn:exclusiveGateway id="bpmnid-b90ed03f-5dac-46eb-b32d-18561578ba43" name="Exclusive gateway" gatewayDirection="Unspecified" default="bpmnid-c6e717f0-4d7e-4307-982c-96d4c8c3c89b"/>
+    <bpmn:sequenceFlow id="bpmnid-1b6db41d-69d5-4dac-bd99-60ff13889706" name="To Managing Process and SOX Controls Documentation" sourceRef="bpmnid-313e57ad-fe79-4220-8ade-a3d196a418b0" targetRef="bpmnid-b5af83f0-77d4-4b39-95b5-5b5ebc178815"/>
+    <bpmn:sequenceFlow id="bpmnid-2b144e8f-71f8-4322-886d-6268b88a9381" name="To Delivering Management's Report on Controls" sourceRef="bpmnid-b643f2f7-1450-4d02-8b49-450fbfedc7f7" targetRef="bpmnid-f6fe60bc-771d-4f8f-b4b5-501eba0381b0"/>
+    <bpmn:sequenceFlow id="bpmnid-aa9a7273-1fe0-494a-b1e9-04be66d9d796" name="To inline user task" sourceRef="bpmnid-0a143b4e-6f5c-4c74-bf82-8a17ddddd4c0" targetRef="bpmnid-7fb90fc8-4993-481c-827b-ed76209e1006"/>
+    <bpmn:sequenceFlow id="bpmnid-dac0cc03-56de-4af2-aadc-3081b2120519" name="To end" sourceRef="bpmnid-f6fe60bc-771d-4f8f-b4b5-501eba0381b0" targetRef="bpmnid-f426a2d5-b080-4f9e-80c9-a4fd80b21489"/>
+    <bpmn:sequenceFlow id="bpmnid-072c0447-6651-4444-8c11-275b3fbf75db" name="Fail" sourceRef="bpmnid-b90ed03f-5dac-46eb-b32d-18561578ba43" targetRef="bpmnid-313e57ad-fe79-4220-8ade-a3d196a418b0">
+      <bpmn:conditionExpression/>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="bpmnid-f11878f8-d33c-4f67-a18d-83eea2bf0d18" name="To Exclusive gateway" sourceRef="bpmnid-fe99288f-622a-418d-88ac-2aee71da46d6" targetRef="bpmnid-b90ed03f-5dac-46eb-b32d-18561578ba43"/>
+    <bpmn:sequenceFlow id="bpmnid-4abdb959-cd2f-42c2-8202-3052e265f6df" name="To Determine Audit Scope Using Risk Assessment" sourceRef="bpmnid-7fb90fc8-4993-481c-827b-ed76209e1006" targetRef="bpmnid-1c932caf-4cc4-4960-afb9-eeb4e0e50052"/>
+    <bpmn:sequenceFlow id="bpmnid-a6913f4d-3b3a-49df-92cf-b639c736c96b" name="To Performing Fraud Risk Assessment" sourceRef="bpmnid-c2a9acb4-8aae-479c-b278-abbf46be0d40" targetRef="bpmnid-313e57ad-fe79-4220-8ade-a3d196a418b0"/>
+    <bpmn:sequenceFlow id="bpmnid-c6e717f0-4d7e-4307-982c-96d4c8c3c89b" name="Pass" sourceRef="bpmnid-b90ed03f-5dac-46eb-b32d-18561578ba43" targetRef="bpmnid-b643f2f7-1450-4d02-8b49-450fbfedc7f7"/>
+    <bpmn:sequenceFlow id="bpmnid-0c9c7ed9-5f12-4987-8e3d-ecfd151a2e02" name="To Identifying SOX Controls" sourceRef="bpmnid-24d9da3b-4b78-4936-b0a1-a4d74b4906ba" targetRef="bpmnid-c2a9acb4-8aae-479c-b278-abbf46be0d40"/>
+    <bpmn:sequenceFlow id="bpmnid-7aeadd2f-10c4-48e8-8b0a-7db71599d27f" name="To Determine Materiality and Risks" sourceRef="bpmnid-1c932caf-4cc4-4960-afb9-eeb4e0e50052" targetRef="bpmnid-24d9da3b-4b78-4936-b0a1-a4d74b4906ba"/>
+    <bpmn:sequenceFlow id="bpmnid-f353513f-20a4-4bcf-8bf5-fe4935a311ce" name="To Testing Key Controls" sourceRef="bpmnid-b5af83f0-77d4-4b39-95b5-5b5ebc178815" targetRef="bpmnid-fe99288f-622a-418d-88ac-2aee71da46d6"/>
+  </bpmn:process>
+</bpmn:definitions>

@@ -1,0 +1,25 @@
+
+graph TD
+    Start --> DefineAuditScope
+    DefineAuditScope --> DetermineMaterialityRisks
+    DetermineMaterialityRisks --> IdentifySOXControls
+    IdentifySOXControls --> PerformFraudRiskAssessment
+    PerformFraudRiskAssessment --> ManageDocumentation
+    ManageDocumentation --> TestKeyControls
+    TestKeyControls -->|Fail| PerformFraudRiskAssessment
+    TestKeyControls -->|Pass| AssessDeficiencies
+    AssessDeficiencies -->|Issues?| DeliverManagementReport
+    DeliverManagementReport --> End
+
+    subgraph SOX Compliance Audit Process
+        Start[Defining Audit Scope]
+        DefineAuditScope[Determine Audit Scope Using Risk Assessment]
+        DetermineMaterialityRisks[Determine Materiality and Risks]
+        IdentifySOXControls[Identifying SOX Controls]
+        PerformFraudRiskAssessment[Performing Fraud Risk Assessment]
+        ManageDocumentation[Managing Process and SOX Controls Documentation]
+        TestKeyControls[Testing Key Controls]
+        AssessDeficiencies[Assessing Deficiencies]
+        DeliverManagementReport[Delivering Management's Report on Controls]
+        End[End]
+    end
